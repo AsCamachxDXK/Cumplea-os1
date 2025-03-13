@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Game</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-image: url('kariCamachx.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        .message {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2em;
+        }
+        .start-button {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-90deg);
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        .puzzle-section {
+            display: none;
+            padding: 20px;
+        }
+        .puzzle-container {
+            display: flex;
+            overflow-x: auto;
+        }
+        .puzzle {
+            flex: 0 0 auto;
+            width: 300px;
+            margin: 10px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+        .puzzle img {
+            width: 100%;
+            filter: blur(5px);
+        }
+        .puzzle.completed img {
+            filter: none;
+        }
+        .puzzle.completed::after {
+            content: "Logrado";
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="message">¿Preparada?</div>
+    <button class="start-button" onclick="startGame()">Start</button>
+
+    <div class="puzzle-section" id="puzzleSection">
+        <div class="puzzle-container">
+            <div class="puzzle" id="puzzle1">
+                <img src="kariCamachx.jpg" alt="Puzzle 1">
+                <!-- Aquí irían las piezas y pistas -->
+            </div>
+            <div class="puzzle" id="puzzle2">
+                <img src="kariCamachx.jpg" alt="Puzzle 2">
+                <!-- Aquí irían las piezas y pistas -->
+            </div>
+            <!-- Añade más puzzles según sea necesario -->
+        </div>
+    </div>
+
+    <script>
+        function startGame() {
+            document.querySelector('.message').style.display = 'none';
+            document.querySelector('.start-button').style.display = 'none';
+            document.getElementById('puzzleSection').style.display = 'block';
+        }
+
+        // Aquí puedes añadir más funciones para manejar la lógica de los puzzles
+    </script>
+</body>
+</html>
